@@ -1,0 +1,186 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<body>
+<div>
+	<table>
+		<tr>
+			<td>Warriors Cats</td>
+		</tr>
+		<tr>
+			<td>Name</td>
+			<td>Age</td>
+			<td>Clan</td>
+			<td>Occupation</td>
+			<td>Mothers Name</td>
+			<td>Fathers Name</td>
+			<td>Lives Left</td>
+			<td>Skill Level</td>
+		</tr>
+	</table>
+</div>
+
+<div>
+	<form method="post" action="addcat.php"> 
+
+		<fieldset>
+			<legend>Name</legend>
+			<p>Name: <input type="text" name="CatName" /></p>
+		</fieldset>
+
+		<fieldset>
+			<legend>Age</legend>
+			<p>Age: <input type="text" name="CatAge" /></p>
+		</fieldset>
+//change this later maybe		
+		<fieldset>
+			<legend>Clan</legend>
+			<p>Clan: <input type="text" name="CatClan" /></p>
+		</fieldset>
+		
+		<fieldset>
+			<legend>Occupation</legend>
+			<p>Occupation: <input type="text" name="CatOccupation" /></p>
+		</fieldset>
+		
+		<fieldset>
+			<legend>Mothers Name</legend>
+			<p>Mothers Name: <input type="text" name="CatMothersName" /></p>
+		</fieldset>
+		
+		<fieldset>
+			<legend>Fathers Name</legend>
+			<p>Fathers Name: <input type="text" name="CatFathersName" /></p>
+		</fieldset>
+		
+		<fieldset>
+			<legend>Lives Left</legend>
+			<p>Lives Left: <input type="integer" name="CatLivesLeft" /></p>
+		</fieldset>
+		//change this later maybe		
+		<fieldset>
+			<legend>Skill Level</legend>
+			<p>Skill Level: <input type="text" name="CatSkillLevel" /></p>
+		</fieldset>
+		
+		<input type="submit" name="add" value="Add Cat" />
+		<input type="submit" name="update" value="Update Cat" />
+	</form>
+</div>
+
+<div>
+	<table>
+		<tr>
+			<td>Warriors Clans</td>
+		</tr>
+		<tr>
+			<td>Name</td>
+			<td>Population</td>
+		</tr>
+	</table>
+ </div>
+ 
+<div>
+	<form method="post" action="addclan.php">
+
+	<fieldset>
+			<legend>Clan Name</legend>
+			<p>Clan Name: <input type="text" name="ClanName" /></p>
+		</fieldset>
+	
+		<fieldset>
+			<legend>Clan Populations</legend>
+			<p>Clan Population: <input type="text" name="ClanPopulation" /></p>
+		</fieldset>
+		
+		<input type="submit" name="add" value="Add Clan" />
+		<input type="submit" name="update" value="Update Clan" />
+	</form>
+</div>
+
+<div>
+	<table>
+		<tr>
+			<td>Warriors Skill Levels</td>
+		</tr>
+		<tr>
+			<td>Name</td>
+		</tr>
+	</table>
+ </div>
+
+<div>
+	<form method="post" action="addskilllevel.php">
+		
+		<fieldset>
+			<legend>Skill Level</legend>
+			<p>Skill Level Name: <input type="text" name="SkillLevelName" /></p>
+		</fieldset>
+		
+		<input type="submit" name="add" value="Add Skill Level" />
+	</form>
+</div>
+
+<div>
+	<table>
+		<tr>
+			<td>Warriors Certifications</td>
+		</tr>
+		<tr>
+			<td>Name</td>
+			<td>Skill Level Required</td>
+		</tr>
+	</table>
+ </div>
+ 
+<div>
+	<form method="post" action="addcertification.php">
+		
+		<fieldset>
+			<legend>Certification Name</legend>
+			<p>Certification Name: <input type="text" name="CertName" /></p>
+		</fieldset>
+		
+		<fieldset>
+			<legend>Certification Requirements</legend>
+			<p>Skill Level Required: <input type="text" name="CertSkillLevelReq" /></p>
+		</fieldset>
+		
+		<input type="submit" name="add" value="Add Certification" />
+		<input type="submit" name="update" value="Update Certification" />
+	</form>
+</div>
+
+<div>
+	<table>
+		<tr>
+			<td>Warriors Jobs</td>
+		</tr>
+		<tr>
+			<td>Name</td>
+			<td>Certification(s) Required</td>
+		</tr>
+	</table>
+ </div>
+ 
+<div>
+	<form method="post" action="addjob.php">
+		
+		<fieldset>
+			<legend>Job Name</legend>
+			<p>Job Name: <input type="text" name="JobName" /></p>
+		</fieldset>
+		
+		<fieldset>
+			<legend>Job Requirements</legend>
+			<p>Certification(s) Required: <input type="text" name="JobCertReq" /></p>
+		</fieldset>
+		
+		<input type="submit" name="add" value="Add Job" />
+		<input type="submit" name="update" value="Update Job" />
+	</form>
+</div>
+
+</body>
+</html>

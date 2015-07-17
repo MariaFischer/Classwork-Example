@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset='utf-8'>
+	<title>Hello World!!</title>
+</head>
+
+<body>
+	<form action="/" method="post">
+		<fieldset>
+			<legend>User Name </legend>
+			<input type="text" value="user-name">
+		</fieldset>
+		<fieldset>
+			<legend>Message </legend>
+			<input type="text" value="message">
+		</fieldset>
+		<fieldset>
+			<legend>Save Message </legend>
+			<input type="submit" value="Save">
+		</fieldset>
+	</form>
+	{% if form_content %}
+	<section>
+	<dl>
+		{% for key, value in form_content.iteritems() %}
+			<dt>
+				{{key | e}}
+			</dt>
+			<dd>
+				{{value | e}}
+			</dd>
+		{% endfor %}
+	</dl>
+	</section>
+	{% endif %}
+</body>
+</html>
