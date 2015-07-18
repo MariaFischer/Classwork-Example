@@ -1,0 +1,60 @@
+CURL Commands
+-------------------------------------------------------------------------------------------
+Book Creation
+-------------------------------------------------------------------------------------------
+input: (add book with only required elements)
+$ curl --data "title= Inkspell" --data "author= Funke" --data "isbn= 987125864" -H "Accept: application/json" http://localhost:9080/API_book
+
+output:
+{"isbn": " 987125864", "author": " Funke", "key": 5209829689786368, "genres": [], "cover": [], "title": " Inkspell", "ownership": [], "libs": []}
+
+input: (add book with all elements but libs)
+$ curl --data "title= Inkspell" --data "author= Funke" --data "isbn= 987125864" --data "cover= Hard" --data "ownership= Want" --data "genres[]= 'Fantasy', 'Mystery'" -H "Accept: application/json" http://localhost:9080/API_book
+
+output:
+{"genres": [" 'Fantasy', 'Mystery'"], "libs": [], "cover": " Hard", "author": " Funke", "ownership": " Want", "title": " Inkspell", "key": 6265360852451328, "isbn": " 987125864"}
+
+input: (add book with all elements)
+$ curl --data "title= Inkspell" --data "author= Funke" --data "isbn= 987125864" --data "cover= Hard" --data "ownership= Want" --data "genres[]= 'Fantasy', 'Mystery'" -d "libs[]=4928354713075712" -H "Accept: application/json" http://localhost:9080/API_book
+
+output:
+{"key": 5983885875740672, "author": " Funke", "ownership": " Want", "cover": " Hard", "title": " Inkspell", "isbn": " 987125864", "genres": [" 'Fantasy', 'Mystery'"], "libs": [4928354713075712]}
+
+-------------------------------------------------------------------------------------------
+Library Creation
+-------------------------------------------------------------------------------------------
+input: (add library with all required elements)
+$ curl --data "name= Mac" --data "location= McMinnville" --data "accessability= Public" -H "Accept: application/json" http://localhost:9080/API_library
+
+output:
+{"location": " McMinnville", "name": " Mac", "key": 6335729596628992, "accessability": " Public", "hours": []}
+
+input: (add library with all elements)
+$ curl --data "name= Mac" --data "location= 3rd St McMinnville OR 97128" --data "accessability= Public" --data "hours= M-F 8:00am to 5:00pm Saturday Noon to 6:00pm Sunday Closed" -H "Accept: application/json" http://localhost:9080/API_library
+
+output:
+{"hours": " M-F 8:00am to 5:00pm Saturday Noon to 6:00pm Sunday Closed", "accessability": " Public", "location": " 3rd St McMinnville OR 97128", "key": 4928354713075712, "name": " Mac"}
+
+-------------------------------------------------------------------------------------------
+Book Editing Libs [Libraries]
+-------------------------------------------------------------------------------------------
+input: (add library to book)
+$ curl -X PUT -H "Accept: application/json" http://localhost:9080/API_book/5209829689786368/API_library/5772779643207680
+
+output:
+{"libs": [5772779643207680], "author": " Funke", "genres": [], "title": " Inkspell", "ownership": null, "isbn": " 987125864", "key": 5209829689786368, "cover": null}
+
+-------------------------------------------------------------------------------------------
+Library Searching
+-------------------------------------------------------------------------------------------
+input: (search library)
+$ curl --data "name= Mac" -H "Accept: application/json" http://localhost:9080/API_library/search
+
+output:
+{"keys": [4928354713075712, 5772779643207680]}
+
+input: (search library)
+$ curl --data "accessability= Public" -H "Accept: application/json" http://localhost:9080/API_library/search
+
+output:
+{"keys": [4928354713075712, 5772779643207680]}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset='utf-8'>
+	<title>Library</title>
+</head>
+
+<body>
+	{% if books|length > 0 %}
+	<section>
+		<h3>Book List</h3>
+		{% for bks in books %}
+				<table>
+					<tr>
+						<td>
+							{{ bks.title }} {{ bks.author }}
+							<br>
+							{{ bks.isbn }}
+							<br>
+							{{ bks.cover }} {{ bks.hard }} {{ bks.soft }}
+							<br>
+							{{ bks.owner }} {{ bks.owned }} {{ bks.want }}
+						</td>
+					</tr>
+				</table>
+			{% endfor %}
+	</section>
+	{% endif %}
+	<form action="/view" method="post">
+		<input type="hidden" name="action" value="back">
+		<fieldset>
+			<legend>Back To Main</legend>
+			<input type="submit" value="Back">
+		</fieldset>
+	</form>	
+</body>
+</html>

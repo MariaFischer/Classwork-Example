@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset='utf-8'>
+	<title>Library</title>
+</head>
+
+<body>
+	<form action="/add" method="post">
+		<input type="hidden" name="action" value="add_book">
+		<fieldset>
+			<legend>User Name</legend>
+			<input type="text" name="user-name">
+		</fieldset>
+		<fieldset>
+			<legend>User Password</legend>
+			<input type="password" name="user-pass">
+		</fieldset>
+		<fieldset>
+			<legend>Book Title</legend>
+			<input type="text" name="book-title">
+		</fieldset>
+		<fieldset>
+			<legend>Author Name</legend>
+			<input type="text" name="book-author">
+		</fieldset>
+		<fieldset>
+			<legend>ISBN</legend>
+			<input type="number" name="book-isbn" value="book-isbn">
+		</fieldset>
+		<fieldset>
+			<legend>Cover/Backing</legend>
+			<input type="radio" name="book-cover" value="book-hard">Hard
+			<br>
+			<input type="radio" name="book-cover" value="book-soft">Soft
+		</fieldset>
+		<fieldset>
+			<legend>Ownership Status</legend>
+			<input type="radio" name="book-owner" value="book-owned">Own
+			<br>
+			<input type="radio" name="book-owner" value="book-want">Want
+		</fieldset>
+		<fieldset>
+			<legend>Genre</legend>
+			<input type="checkbox" name="book-genre" value="mystery">Mystery 
+			<br>
+			<input type="checkbox" name="genre" value="fiction">Fiction 
+			<br>
+			<input type="checkbox" name="genre" value="fantasy">Fantasy 
+			<br>
+			<input type="checkbox" name="genre" value="horror">Horror 
+			<br>
+			<input type="checkbox" name="genre" value="scifi">SciFi 
+			<br>
+			<input type="checkbox" name="genre" value="non-fiction">Non-Fiction 
+			<br>
+			<input type="checkbox" name="genre" value="Textbook">Textbook			
+			<br>
+			<input type="checkbox" name="genre" value="childrens">Childrens 
+			<br>
+			<input type="checkbox" name="genre" value="teen">Teen 
+			<br>
+			<input type="checkbox" name="genre" value="adult">Adult 
+			<br>
+			<input type="checkbox" name="genre" value="romance">Romance
+			<br>
+			<input type="checkbox" name="genre" value="other">Other 
+		</fieldset>
+		<fieldset>
+			<legend>Add Book</legend>
+			<input type="submit" value="Add">
+		</fieldset>
+	</form>
+	{% if books|length > 0 %}
+	<section>
+		<h2> Edit Books</h2>
+			{% for bks in books %}
+			<a href='edit?key={{ bks.key }}&type=book'>{{ bks.title }}</a>
+			{% endfor %}
+	</section>
+	{% endif %}
+	{% if message %}
+	<section>
+		<h3>Result</h3>
+		<p>{{ message }}
+	</section>
+	{% endif %}
+	<form action="/add" method="post">
+		<input type="hidden" name="action" value="back">
+		<fieldset>
+			<legend>Back To Main</legend>
+			<input type="submit" value="Back">
+		</fieldset>
+	</form>	
+</body>
+</html>

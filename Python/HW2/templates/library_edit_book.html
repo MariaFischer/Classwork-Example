@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset='utf-8'>
+	<title>Library</title>
+</head>
+
+<body>
+
+	<fieldset>
+		<legend>Current Book Statistics</legend>
+		{{ book.title }} {{ book.author }}
+		<br>
+		{{ book.isbn }}
+		<br>
+		{{ book.cover }} {{ book.hard }} {{ book.soft }}
+		<br>
+		{{ book.owner }} {{ book.owned }} {{ book.want }}
+		<br>
+		<br>
+		Please Re-Create All Above Data And Assimilate Changes
+	</fieldset>
+	<form method="post" action="{{ edit_url }}" enctype="multipart/form-data">
+		<input type="hidden" name="key" value="{{ book.key.urlsafe() }}">
+		<fieldset>
+			<legend>Edit Title</legend>
+			<input type="text" name="book-titleN" >
+		</fieldset>
+		<fieldset>	
+			<legend>Edit Author</legend>
+			<input type="text" name="book-authorN">
+		</fieldset>
+		<fieldset>
+			<legend>Edit ISBN</legend>
+			<input type="number" name="book-isbnN" value="book-isbnN">
+		</fieldset>
+		<fieldset>
+			<legend>Edit Cover/Binding</legend>
+			<input type="radio" name="book-coverN" value="book-hardN">Hard
+			<br>
+			<input type="radio" name="book-coverN" value="book-softN">Soft
+		</fieldset>
+		<fieldset>
+			<legend>Edit Ownership</legend>
+			<input type="radio" name="book-ownerN" value="book-ownedN">Own
+				<br>
+				<input type="radio" name="book-ownerN" value="book-wantN">Want
+		</fieldset>
+		<fieldset>
+			<legend>Edit Genre</legend>
+			<input type="checkbox" name="book-genreN" value="mystery">Mystery 
+			<br>
+			<input type="checkbox" name="book-genreN" value="fiction">Fiction 
+			<br>
+			<input type="checkbox" name="book-genreN" value="fantasy">Fantasy 
+			<br>
+			<input type="checkbox" name="book-genreN" value="horror">Horror 
+			<br>
+			<input type="checkbox" name="book-genreN" value="scifi">SciFi 
+			<br>
+			<input type="checkbox" name="book-genreN" value="non-fiction">Non-Fiction 
+			<br>
+			<input type="checkbox" name="book-genreN" value="Textbook">Textbook			
+			<br>
+			<input type="checkbox" name="book-genreN" value="childrens">Childrens 
+			<br>
+			<input type="checkbox" name="book-genreN" value="teen">Teen 
+			<br>
+			<input type="checkbox" name="book-genreN" value="adult">Adult 
+			<br>
+			<input type="checkbox" name="book-genreN" value="romance">Romance
+			<br>
+			<input type="checkbox" name="book-genreN" value="other">Other 
+		</fieldset>
+		<fieldset>
+			<legend>Save Edit</legend>		
+			<input type="submit" value="Save">
+		</fieldset>
+	</form>	
+	{% if message %}
+	<section>
+		<h3>Result</h3>
+		<p>{{ message }}
+	</section>
+	{% endif %}
+	<form action="/edit_book" method="post">
+		<input type="hidden" name="action" value="back">
+		<fieldset>
+			<legend>Back To Main</legend>
+			<input type="submit" value="Back">
+		</fieldset>
+	</form>	
+</body>
+</html>

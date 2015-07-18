@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset='utf-8'>
+	<title>IRC Manager</title>
+</head>
+
+<body>
+	<form action="/admin" method="post">
+		<input type="hidden" name="action" value="add_channel">
+		<fieldset>
+			<legend>Channel Name</legend>
+			<input type="text" name="channel-name">
+		</fieldset>
+		<fieldset>
+			<legend>Add Channel</legend>
+			<input type="submit" value="Add">
+		</fieldset>
+	</form>
+	{% if message %}
+	<section>
+		<h3>Result</h3>
+		<p>{{ message }}
+	</section>
+	{% endif %}
+</body>
+</html>

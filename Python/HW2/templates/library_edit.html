@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset='utf-8'>
+	<title>Library</title>
+</head>
+
+<body>
+	{% if books|length > 0 %}
+	<section>
+		<h3>Book List (choose one to edit)</h3>
+		{% for bks in books %}
+				<table>
+					<tr>
+						<td>
+							{{ bks.title }} {{ bks.author }}
+							<br>
+							{{ bks.isbn }}
+							<br>
+							{{ bks.cover }} {{ bks.hard }} {{ bks.soft }}
+							<br>
+							{{ bks.owner }} {{ bks.owned }} {{ bks.want }}
+							<!--This is where I believe the error is, I am unsure as to how to put the key into the url in a form that my python file can read?-->
+							<br><a href='/library_edit_book_form?key={{ bks.key }}&amp;type=book'>Edit Book</a>
+						</td>
+					</tr>
+				</table>
+			{% endfor %}
+	</section>
+	{% endif %}
+	{% if message %}
+	<section>
+		<h3>Result</h3>
+		<p>{{ message }}
+	</section>
+	{% endif %}
+	<form action="/edit" method="post">
+		<input type="hidden" name="action" value="back">
+		<fieldset>
+			<legend>Back To Main</legend>
+			<input type="submit" value="Back">
+		</fieldset>
+	</form>	
+</body>
+</html>
